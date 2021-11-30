@@ -1,3 +1,7 @@
+const currentDate = document.querySelector('.current_date');
+const today = new Date();
+const todayLocal= today.toLocaleString();
+currentDate.innerText =`${todayLocal}`;
 
 
 const selectProvince = document.querySelector('#select_province');
@@ -11,7 +15,7 @@ selectProvince.addEventListener('change', (event) => {
     //PI(agrigentoAPI); // 9 switch?
 
     //API
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${event.target.value}&appid=ebeb562bdc09967ba266dc46f612e2b1`)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${event.target.value}&units=metric&appid=ebeb562bdc09967ba266dc46f612e2b1`)
     //.then(response => response.json())
     //.then((data) => console.log(data));
     .then(weather => {
@@ -27,7 +31,8 @@ selectProvince.addEventListener('change', (event) => {
         provincesWrapper.innerText =`
         ${event.target.value}
         ${weather.weather[0].main}
-        ${weather.weather[0].description}`
+        ${weather.weather[0].description}
+        ${weather.main.temp}°C`
         
 
 
