@@ -4,11 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Federica Santoro">
+    <meta name="description" content="Today Weather App in Sicily">
+    <meta name="keywords" content="weather, web app">
     <title>Today Weather App in Sicily</title>
-    <link rel="stylesheet" href="style.css"
+    <link rel="stylesheet" href="style.css"><link>
 </head>
 <body>
+
     <h1>Today Weather App in Sicily</h1>
-    <script src="script.js"></script>
+
+    <!-- START SELECT HTML -->
+    <div class="select__wrapper"
+        <label for="select_province">Choose a province:</label>
+        <select name="select_province" id="select_province">
+            <option value="">Choose an option</option>
+            <option value="Agrigento">Agrigento</option>
+            <option value="Caltanissetta">Caltanissetta</option>
+            <option value="Catania">Catania</option>
+            <option value="Enna">Enna</option>
+            <option value="Messina">Messina</option>
+            <option value="Palermo">Palermo</option>
+            <option value="Ragusa">Ragusa</option>
+            <option value="Siracusa">Siracusa</option>
+            <option value="Trapani">Trapani</option>
+        </select>
+    </div>
+    <!-- END SELECT HTML -->
+
+    <!-- START PROVINCE WRAPPER -->
+    <div class="provinces_wrapper"> 
+        <p class="description_p"></p>
+    </div>
+
+    <!-- START PROVINCE DIV -->
+ 
+
+        <script src="script.js"></script>
 </body>
 </html>
