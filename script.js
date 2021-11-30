@@ -5,11 +5,12 @@ const todayLocal= today.toLocaleString();
 
 
 const selectProvince = document.querySelector('#select_province');
+const provincesWrapper = document.querySelector('.provinces_wrapper');
 
 
 selectProvince.addEventListener('change', (event) => {
 
-    const provincesWrapper = document.querySelector('.provinces_wrapper');
+    
     provincesWrapper.textContent = `You chose ${event.target.value}`;
     console.log(event.target.value);
     //PI(agrigentoAPI); // 9 switch?
@@ -21,36 +22,7 @@ selectProvince.addEventListener('change', (event) => {
     .then(weather => {
         return weather.json();
     }) .then(displayResults);
-
   
-
-    
-    
-    function displayResults (weather){
-        console.log(weather);
-        provincesWrapper.innerText =`
-        ${event.target.value}
-        ${todayLocal}
-        
-        ${weather.main.temp}°C
-        ${weather.weather[0].main}
-        ${weather.main.temp_min}°C - ${weather.main.temp_max}°C
-        ${weather.main.humidity}°C `
-      
-        
-
-
-        
-        //${weather.weather[0].icon}
-        //provincesWrapper.innerText = weather.weather[0].description;
-
-    }
-     
-    
-   
-        
-
-   
       //console.log(`http://api.openweathermap.org/data/2.5/weather?q=${event.target.value}&appid=ebeb562bdc09967ba266dc46f612e2b1`);
     
     //
@@ -82,3 +54,17 @@ fetch(provinceAPI)
     .then((data) => console.log(data));
 };
 */
+
+//CARD
+function displayResults (weather){
+    console.log(weather);
+    provincesWrapper.innerText =`
+    ${weather.name}
+    ${todayLocal}
+    ${weather.main.temp}°C
+    ${weather.weather[0].main}
+    ${weather.main.temp_min}°C - ${weather.main.temp_max}°C
+    ${weather.main.humidity}°C `
+    //${event.target.value}
+  //${weather.weather[0].icon}
+}
