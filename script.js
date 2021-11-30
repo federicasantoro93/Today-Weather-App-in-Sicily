@@ -1,7 +1,7 @@
 const currentDate = document.querySelector('.current_date');
 const today = new Date();
 const todayLocal= today.toLocaleString();
-currentDate.innerText =`${todayLocal}`;
+//currentDate.innerText =`${todayLocal}`;
 
 
 const selectProvince = document.querySelector('#select_province');
@@ -30,14 +30,18 @@ selectProvince.addEventListener('change', (event) => {
         console.log(weather);
         provincesWrapper.innerText =`
         ${event.target.value}
+        ${todayLocal}
+        
+        ${weather.main.temp}°C
         ${weather.weather[0].main}
-        ${weather.weather[0].description}
-        ${weather.main.temp}°C`
+        ${weather.main.temp_min}°C - ${weather.main.temp_max}°C
+        ${weather.main.humidity}°C `
+      
         
 
 
         
-        
+        //${weather.weather[0].icon}
         //provincesWrapper.innerText = weather.weather[0].description;
 
     }
