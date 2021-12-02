@@ -10,8 +10,8 @@ const provincesWrapper = document.querySelector('.provinces_wrapper');
 
 selectProvince.addEventListener('change', (event) => {
 
-if (event.target.value !== "") {
-    provincesWrapper.textContent = `You chose ${event.target.value}`;
+if (event.target.value !== "all") {
+    //provincesWrapper.textContent = `You chose ${event.target.value}`;
     console.log(event.target.value);
     //PI(agrigentoAPI); // 9 switch?
 
@@ -27,22 +27,21 @@ if (event.target.value !== "") {
     
     //
 
-} else if (event.target.value == ""){
+} else {
         //alert('Chose a province');
     //allprovinces = provinces.map ( province => 
     //    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${province}&units=metric&appid=ebeb562bdc09967ba266dc46f612e2b1`)
+    fetcAllCard();
+    
+    /*
     fetch(`http://api.openweathermap.org/data/2.5/group?id=2525763,2525447,2525068,2524819,2523918,2524170,2523649,2523082,2522875&units=metric&appid=ebeb562bdc09967ba266dc46f612e2b1`)
     .then(weather => {
         return weather.json();
     })
      .then(displayallcard)
+    */
     
-    
-    }  else {
-    //come si imposta l'opzione null?
-    console.log('null');
-} 
-      
+    }    
 });
 
 
@@ -76,6 +75,7 @@ fetch(provinceAPI)
 //CARD
 function displayResults (weather){
     console.log(weather);
+    /*
     provincesWrapper.innerText =`
     ${weather.name}
     ${todayLocal}
@@ -85,6 +85,23 @@ function displayResults (weather){
     ${weather.main.humidity}°C 
     
     `
+    */
+
+       
+    render(provincesWrapper,
+      `<ul><li> 
+      ${weather.name}
+      ${todayLocal}
+      ${weather.main.temp}°C
+      ${weather.weather[0].main}
+      ${weather.main.temp_min}°C - ${weather.main.temp_max}°C
+      ${weather.main.humidity}°C 
+      
+      </li> 
+      </ul>`
+        );
+
+       
     //${event.target.value}
   //${weather.weather[0].icon}
 }
@@ -106,8 +123,7 @@ function displayallcard (weather){
     console.log(elements);
     //const provincesWrapper = document.querySelector('.provinces_wrapper');
     render(provincesWrapper,
-        `<p> Weather of all Provinces </p> 
-        <ul>${elements}</ul>`
+        `<ul>${elements}</ul>`
           );
        
         //console.log(item);
@@ -130,3 +146,14 @@ function displayallcard (weather){
 }
 
 const render = (container, content) => (container.innerHTML = content);
+
+
+function fetcAllCard() {
+  fetch(`http://api.openweathermap.org/data/2.5/group?id=2525763,2525447,2525068,2524819,2523918,2524170,2523649,2523082,2522875&units=metric&appid=ebeb562bdc09967ba266dc46f612e2b1`)
+.then(weather => {
+    return weather.json();
+})
+ .then(displayallcard)
+}
+
+ fetcAllCard();
