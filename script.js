@@ -92,6 +92,7 @@ function displayResults (weather){
       `<ul><li> 
       ${weather.name}
       ${todayLocal}
+      <img class="icon" src="http://openweathermap.org/img/w/${weather.weather[0].icon}.png">
       ${weather.main.temp}°C
       ${weather.weather[0].main}
       ${weather.main.temp_min}°C - ${weather.main.temp_max}°C
@@ -113,6 +114,7 @@ function displayallcard (weather){
     const elements = weather.list.map ( item => `<li> 
     ${item.name}
     ${todayLocal}
+    <img class="icon" src="http://openweathermap.org/img/w/${item.weather[0].icon}.png">
     ${item.main.temp}°C
     ${item.weather[0].main}
     ${item.main.temp_min}°C - ${item.main.temp_max}°C
