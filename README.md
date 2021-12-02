@@ -1,7 +1,7 @@
 # Today Weather App in Sicily
  Web app for viewing the weather for the current day in Sicily.
 
-<a target= "_blank" href="https://federicasantoro93.github.io/Today-Weather-App-in-Sicily/">Today Weather App in Sicily</a>
+<a target="_blank" href="https://federicasantoro93.github.io/Today-Weather-App-in-Sicily/">Today Weather App in Sicily</a>
 
 
 ### Target
