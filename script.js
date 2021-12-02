@@ -10,7 +10,7 @@ const provincesWrapper = document.querySelector('.provinces_wrapper');
 
 selectProvince.addEventListener('change', (event) => {
 
-    
+if (event.target.value !== "") {
     provincesWrapper.textContent = `You chose ${event.target.value}`;
     console.log(event.target.value);
     //PI(agrigentoAPI); // 9 switch?
@@ -26,12 +26,30 @@ selectProvince.addEventListener('change', (event) => {
       //console.log(`http://api.openweathermap.org/data/2.5/weather?q=${event.target.value}&appid=ebeb562bdc09967ba266dc46f612e2b1`);
     
     //
-   
+
+} else if (event.target.value == ""){
+        //alert('Chose a province');
+    //allprovinces = provinces.map ( province => 
+    //    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${province}&units=metric&appid=ebeb562bdc09967ba266dc46f612e2b1`)
+    fetch(`http://api.openweathermap.org/data/2.5/group?id=2525763,2525447,2525068,2524819,2523918,2524170,2523649,2523082,2522875&units=metric&appid=ebeb562bdc09967ba266dc46f612e2b1`)
+    .then(weather => {
+        return weather.json();
+    })
+     .then(displayallcard)
+    
+    
+    }  else {
+    //come si imposta l'opzione null?
+    console.log('null');
+} 
       
 });
 
- 
 
+
+
+ 
+const provinces = ['Agrigento', 'Caltanissetta', 'Catania', 'Enna', 'Messina', 'Palermo', 'Ragusa', 'Siracusa', 'Trapani' ]
 
 /*
 //API 
@@ -64,7 +82,51 @@ function displayResults (weather){
     ${weather.main.temp}°C
     ${weather.weather[0].main}
     ${weather.main.temp_min}°C - ${weather.main.temp_max}°C
-    ${weather.main.humidity}°C `
+    ${weather.main.humidity}°C 
+    
+    `
     //${event.target.value}
   //${weather.weather[0].icon}
 }
+
+//CARD
+function displayallcard (weather){
+    console.log(weather.list);
+    //const provincesArr = weather.list;
+    const elements = weather.list.map ( item => `<li> 
+    ${item.name}
+    ${todayLocal}
+    ${item.main.temp}°C
+    ${item.weather[0].main}
+    ${item.main.temp_min}°C - ${item.main.temp_max}°C
+    ${item.main.humidity}°C 
+    </li>
+    `)
+    .join('');
+    console.log(elements);
+    //const provincesWrapper = document.querySelector('.provinces_wrapper');
+    render(provincesWrapper,
+        `<p> Weather of all Provinces </p> 
+        <ul>${elements}</ul>`
+          );
+       
+        //console.log(item);
+    
+     /*   
+    provincesWrapper.innerText =`
+    ${item.name}
+    ${todayLocal}
+    ${item.temp}°C
+    ${item.weather[0].main}
+    ${item.main.temp_min}°C - ${item.main.temp_max}°C
+    ${item.main.humidity}°C 
+    
+    `
+    */
+    //${event.target.value}
+  //${weather.weather[0].icon}
+   // }
+
+}
+
+const render = (container, content) => (container.innerHTML = content);

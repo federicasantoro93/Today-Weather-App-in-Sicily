@@ -1,1 +1,30 @@
-h1{color:red;}
+body{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: #F2F0F0;
+    background-color: #1D1C26;
+    font-family: 'Outfit', sans-serif;
+}
+
+h1{
+    color:#98A6A4;
+}
+
+select{
+    color:#1D1C26;
+}
+
+
+.provinces_wrapper{
+    
+    color: #98A6A4;
+  
+    opacity: 0.5;
+    margin: 50px auto;
+    border-radius: 20px;
+}
+
+ul{
+    list-style-type: none;
+}
