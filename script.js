@@ -90,14 +90,13 @@ function displayResults (weather){
        
     render(provincesWrapper,
       `<ul><li> 
-      ${weather.name}
-      ${todayLocal}
+      <h3>${weather.name}</h3>
+      <p class="date">${todayLocal}</p>
       <img class="icon" src="http://openweathermap.org/img/w/${weather.weather[0].icon}.png">
-      ${weather.main.temp}°C
-      ${weather.weather[0].main}
-      ${weather.main.temp_min}°C - ${weather.main.temp_max}°C
-      ${weather.main.humidity}°C 
-      
+      <p class="temp">${weather.main.temp}°C</p>
+      <p class="main">${weather.weather[0].main}</p>
+      <p class="temp_m_m">min: ${weather.main.temp_min}°C - max: ${weather.main.temp_max}°C</p>
+      <p class="humidity">Humidity: ${weather.main.humidity}°C</p>
       </li> 
       </ul>`
         );
@@ -112,20 +111,20 @@ function displayallcard (weather){
     console.log(weather.list);
     //const provincesArr = weather.list;
     const elements = weather.list.map ( item => `<li> 
-    ${item.name}
-    ${todayLocal}
+    <h3>${item.name}</h3>
+    <p class="date">${todayLocal}</p>
     <img class="icon" src="http://openweathermap.org/img/w/${item.weather[0].icon}.png">
-    ${item.main.temp}°C
-    ${item.weather[0].main}
-    ${item.main.temp_min}°C - ${item.main.temp_max}°C
-    ${item.main.humidity}°C 
+    <p class="temp">${item.main.temp}°C</p>
+    <p class="main">${item.weather[0].main}</p>
+    <p class="temp_m_m">min: ${item.main.temp_min}°C - max:${item.main.temp_max}°C</p>
+    <p class="humidity">Humidity: ${item.main.humidity}°C</p>
     </li>
     `)
     .join('');
     console.log(elements);
     //const provincesWrapper = document.querySelector('.provinces_wrapper');
     render(provincesWrapper,
-        `<ul>${elements}</ul>`
+        `<ul class="cards">${elements}</ul>`
           );
        
         //console.log(item);
