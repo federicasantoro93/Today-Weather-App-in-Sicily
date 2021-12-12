@@ -8,7 +8,7 @@ selectProvince.addEventListener('change', (event) => {
 
   if (event.target.value !== "all") {
  
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${event.target.value}&units=metric&appid=ebeb562bdc09967ba266dc46f612e2b1`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${event.target.value}&units=metric&appid=ebeb562bdc09967ba266dc46f612e2b1`)
       .then(weather => {
       return weather.json();
     }) .then(displayResults);
@@ -58,7 +58,7 @@ render(provincesWrapper,`<ul class="cards">${elements}</ul>`);
 const render = (container, content) => (container.innerHTML = content);
 
 function fetcAllCard() {
-  fetch(`http://api.openweathermap.org/data/2.5/group?id=2525763,2525447,2525068,2524819,2523918,2524170,2523649,2523082,2522875&units=metric&appid=ebeb562bdc09967ba266dc46f612e2b1`)
+  fetch(`https://api.openweathermap.org/data/2.5/group?id=2525763,2525447,2525068,2524819,2523918,2524170,2523649,2523082,2522875&units=metric&appid=ebeb562bdc09967ba266dc46f612e2b1`)
   .then(weather => {
     return weather.json();
   })
