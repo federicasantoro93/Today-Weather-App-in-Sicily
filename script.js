@@ -26,7 +26,7 @@ function displayResults (weather){
       <li> 
         <h3>${weather.name}</h3>
         <p class="date">${todayLocal}</p>
-        <img class="icon" src="http://openweathermap.org/img/w/${weather.weather[0].icon}.png">
+        <img class="icon" src="https://openweathermap.org/img/w/${weather.weather[0].icon}.png">
         <p class="main">${weather.weather[0].main}</p> 
         <p class="temp">${weather.main.temp}°</p>
         <p class="temp_m_m">${weather.main.temp_min}° - ${weather.main.temp_max}° <br> min - max temp</p>
@@ -42,7 +42,7 @@ function displayallcard (weather){
       <li> 
         <h3>${item.name}</h3>
         <p class="date">${todayLocal}</p>
-        <img class="icon" src="http://openweathermap.org/img/w/${item.weather[0].icon}.png">
+        <img class="icon" src="https://openweathermap.org/img/w/${item.weather[0].icon}.png">
         <p class="main">${item.weather[0].main}</p>
         <p class="temp">${item.main.temp}°</p>
         <p class="temp_m_m">${item.main.temp_min}° - ${item.main.temp_max}° <br> min - max temp </p>
